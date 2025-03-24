@@ -5,14 +5,20 @@ from cryptography import x509
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.backends import default_backend
 from colorama import Fore, Style, init
+import atexit
 
-init(autoreset=True)
 
 VAULT_ADDR = 'http://127.0.0.1:8200'
-VAULT_TOKEN = str(input("Enter your vault token: "))  # Replace with your root token
+with open('vault_token.txt', 'r') as f:
+    VAULT_TOKEN = f.read().strip()
 MOUNT_POINT = 'certs'
 
-client = hvac.Client(url=VAULT_ADDR, token=VAULT_TOKEN)
+client = hvac.Client(url=VAULT_ADDR)
+client.token = VAULT_TOKEN
+
+# Verify the token is valid
+if not client.is_authenticated():
+    raise EnvironmentError("Invalid Vault Token")
 
 BACKUP_DIR = 'cert_backups'
 os.makedirs(BACKUP_DIR, exist_ok=True)
@@ -100,6 +106,27 @@ def backup_and_rotate():
             print(f"{Fore.RED}❌ Unexpected Error: {e}{Style.RESET_ALL}")
     print(f"{Fore.GREEN}✅ Backup and rotation complete!{Style.RESET_ALL}")
 
+def cleanup():
+    certs = [f for f in os.listdir() if f.endswith('.crt') or f.endswith('.key')]
+    for cert_file in certs:
+        os.remove(cert_file)
+        print(f"{Fore.RED}🗑️ Deleted: {cert_file}{Style.RESET_ALL}")
+
+    if os.path.exists(BACKUP_DIR):
+        for backup_file in os.listdir(BACKUP_DIR):
+            os.remove(os.path.join(BACKUP_DIR, backup_file))
+            print(f"{Fore.RED}🗑️ Deleted backup: {backup_file}{Style.RESET_ALL}")
+        os.rmdir(BACKUP_DIR)
+        print(f"{Fore.RED}🗑️ Deleted backup directory: {BACKUP_DIR}{Style.RESET_ALL}")
+
+    if os.path.exists('vault_token.txt'):
+        os.remove('vault_token.txt')
+        print(f"{Fore.RED}🗑️ Deleted: vault_token.txt{Style.RESET_ALL}")
+
+    if os.path.exists('vault.log'):
+        os.remove('vault.log')
+        print(f"{Fore.RED}🗑️ Deleted: vault.log{Style.RESET_ALL}")
+
 def main():
     for i in range(100):
         print("Choose an option:\n1. Generate N Fake Certs\n2. Verify Certs\n3. Backup and Rotate Certs\n4. Exit")
@@ -117,3 +144,4 @@ def main():
 
 
 main()
+atexit.register(cleanup)

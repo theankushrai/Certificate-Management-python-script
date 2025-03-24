@@ -38,8 +38,8 @@ echo "🔑 Root Token: $ROOT_TOKEN"
 # ====== Export Environment Variables ======
 export VAULT_ADDR="http://127.0.0.1:8200"
 export VAULT_TOKEN="$ROOT_TOKEN"
-# echo "export VAULT_ADDR=http://127.0.0.1:8200" >> ~/.bashrc
-# echo "export VAULT_TOKEN=$ROOT_TOKEN" >> ~/.bashrc
+echo "export VAULT_ADDR=http://127.0.0.1:8200" >> ~/.bashrc
+echo "export VAULT_TOKEN=$ROOT_TOKEN" >> ~/.bashrc
 
 # ====== Authenticate with Vault ======
 vault login "$ROOT_TOKEN"
@@ -58,3 +58,4 @@ vault status
 
 echo "🎉 Vault is ready at: $VAULT_ADDR"
 echo "🔐 Use this token to authenticate: $ROOT_TOKEN"
+echo $ROOT_TOKEN > vault_token.txt
