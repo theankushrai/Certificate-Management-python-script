@@ -119,10 +119,6 @@ def cleanup():
         os.rmdir(BACKUP_DIR)
         print(f"{Fore.RED}🗑️ Deleted backup directory: {BACKUP_DIR}{Style.RESET_ALL}")
 
-    if os.path.exists('vault_token.txt'):
-        os.remove('vault_token.txt')
-        print(f"{Fore.RED}🗑️ Deleted: vault_token.txt{Style.RESET_ALL}")
-
     if os.path.exists('vault.log'):
         os.remove('vault.log')
         print(f"{Fore.RED}🗑️ Deleted: vault.log{Style.RESET_ALL}")
