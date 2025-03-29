@@ -28,10 +28,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Make the startup script executable
-RUN chmod +x /start.sh
-
-# Expose the ports for Vault and Flask
-EXPOSE 8200 8080
+RUN chmod +x start.sh
 
 # Run the startup script on container start
-CMD ["/start.sh"]
+CMD ["./start.sh"]

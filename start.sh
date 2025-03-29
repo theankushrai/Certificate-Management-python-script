@@ -26,7 +26,7 @@ export VAULT_TOKEN="$ROOT_TOKEN"
 # Authenticate with Vault
 vault login "$ROOT_TOKEN"
 
-# Enable KV Secrets Engine
+# Check Existing Secrets Engines
 if ! vault secrets list | grep -q "certs/"; then
     echo "🛠️ Enabling KV v2 at 'certs/'..."
     vault secrets enable -path=certs kv-v2
@@ -34,6 +34,11 @@ else
     echo "✅ KV v2 at 'certs/' already enabled."
 fi
 
-# Start the Flask application
-echo "🚀 Starting Flask application ..."
-python main.py
+# Check Vault Status
+echo "📊 Vault Status:"
+vault status
+
+echo "🎉 Vault is ready"
+
+# Start an interactive shell
+exec "$SHELL"
