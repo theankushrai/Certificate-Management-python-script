@@ -1,7 +1,7 @@
 # Use official Python image
 FROM python:3.12-slim
 
-# Set environment variables to prevent Python from writing .pyc files and buffering output
+# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
@@ -27,12 +27,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the project files
 COPY . .
 
-# Copy and make the startup script executable
-COPY start.sh /start.sh
+# Make the startup script executable
 RUN chmod +x /start.sh
 
-# Expose the port your app runs on (if applicable)
-EXPOSE 8200
+# Expose the ports for Vault and Flask
+EXPOSE 8200 8080
 
 # Run the startup script on container start
 CMD ["/start.sh"]

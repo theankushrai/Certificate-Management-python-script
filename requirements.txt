@@ -1,3 +1,6 @@
 hvac
 cryptography
 colorama
+Flask==2.2.3
+Flask-SocketIO==5.3.2
+docker==6.0.1
