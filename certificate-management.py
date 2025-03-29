@@ -67,7 +67,7 @@ def backup_and_rotate():
             cert = c.read()
             key = k.read()
 
-        # Backup old cert and key
+        # Backup old cert and key The paths are same 
         backup_cert_path = os.path.join(BACKUP_DIR, cert_file)
         backup_key_path = os.path.join(BACKUP_DIR, key_file)
 

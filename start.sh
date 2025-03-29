@@ -3,7 +3,7 @@
 set -e  # Exit on any error
 
 # Start Vault in dev mode
-echo "🚀 Starting Vault in dev mode..."
+echo "🚀 Starting Vault ..."
 nohup vault server -dev -dev-listen-address="0.0.0.0:8200" > vault.log 2>&1 &
 
 # Wait for Vault to Start
@@ -15,7 +15,6 @@ if [ -z "$ROOT_TOKEN" ]; then
     echo "❌ Failed to extract root token. Exiting."
     exit 1
 fi
-echo "🔑 Root Token: $ROOT_TOKEN"
 
 # Save the root token to a file
 echo $ROOT_TOKEN > vault_token.txt
@@ -23,8 +22,6 @@ echo $ROOT_TOKEN > vault_token.txt
 # Export Environment Variables
 export VAULT_ADDR="http://127.0.0.1:8200"
 export VAULT_TOKEN="$ROOT_TOKEN"
-echo "export VAULT_ADDR=http://127.0.0.1:8200" >> ~/.bashrc
-echo "export VAULT_TOKEN=$ROOT_TOKEN" >> ~/.bashrc
 
 # Authenticate with Vault
 vault login "$ROOT_TOKEN"
@@ -41,8 +38,7 @@ fi
 echo "📊 Vault Status:"
 vault status
 
-echo "🎉 Vault is ready at: $VAULT_ADDR"
-echo "🔐 Use this token to authenticate: $ROOT_TOKEN"
+echo "🎉 Vault is ready"
 
 # Start an interactive shell
 exec "$SHELL"
