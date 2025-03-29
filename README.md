@@ -18,7 +18,7 @@ Certificate Management is a script designed to handle all certificate-related ta
 
 To set up the project, simply run the provided Docker image (Releases section)
 
-[![Watch the video](https://img.youtube.com/vi/0l3FRqL7oXs/maxresdefault.jpg)](https://youtu.be/0l3FRqL7oXs)
+[![Watch the video](https://img.youtube.com/vi/0l3FRqL7oXs/hqdefault.jpg)](https://youtu.be/0l3FRqL7oXs)
 
 ## 🚀 Usage
 
