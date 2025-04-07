@@ -1,49 +1,89 @@
-# 🎉 Certificate Management 🚀
 
-## Description
-
-Certificate Management is a script designed to handle all certificate-related tasks efficiently. The script, `certificate-management.py`, serves as an all-in-one tool for managing certificates on a server. It allows users to:
-
-- 🔍 View certificates on the server, including expiry dates, serial numbers, and DNS details.
-- 🔄 Rotate certificates when needed.
-- 🛠️ Generate new certificates as required.
-
-## 🛠 Tech Stack
-
-- 🐍 Python
-- 🖥️ Shell
-- 🔐 HashiCorp Vault
-
-## 📦 Installation
-
-To set up the project, simply run the provided Docker image (Releases section)
-
-[![Watch the video](https://img.youtube.com/vi/0l3FRqL7oXs/hqdefault.jpg)](https://youtu.be/0l3FRqL7oXs)
-
-## 🚀 Usage
-
-Run the `certificate-management.py` script and follow the on-screen instructions:
-1️⃣ Generate new certificates.
-2️⃣ Verify certificate details.
-3️⃣ Backup and rotate certificates.
-4️⃣ Exit the script.
-
-## 🌟 Features
-
-- ✅ All-in-one certificate management tool.
-- 📜 View certificate details such as expiry dates, serial numbers, and DNS information.
-- 🔄 Rotate certificates seamlessly.
-- 🏗️ Generate new certificates as needed.
-
-## ❌ Contributing
-
-Contributions are not accepted at the moment.
-
-## 📜 License
-
-No license specified. Please contact the author if needed.
+# 🎉 Certificate Management 🚀  
+Effortless certificate handling for modern infrastructure
 
 ---
 
-For any queries or additional information, feel free to reach out! ✉️
+## 📖 Overview
 
+This project is a handy, all-in-one **Python-based script** for managing certificates on your server. Whether you're checking expiry dates, rotating certificates, or generating new ones — this script helps you get it all done with minimal effort 🛠️
+
+---
+
+## 🔍 What It Can Do
+
+- View certificates with:
+  - ✅ Expiry dates  
+  - ✅ Serial numbers  
+  - ✅ DNS details  
+- 🔁 Rotate certificates when they're close to expiry  
+- 🆕 Generate new certificates as required  
+- 💻 All through a single script — no complex tooling needed!
+
+---
+
+## 🧰 Tech Stack
+
+- 🐍 Python  
+- 🖥️ Shell scripting  
+- 🔐 HashiCorp Vault  
+- 🐳 Docker
+
+---
+
+## 🐳 How to Run (Docker)
+
+You can get started instantly using Docker 🐋:
+
+```bash
+docker pull iamankushrai/certificate-management
+docker run -it iamankushrai/certificate-management
+```
+
+No manual setup required — just pull and run!
+
+---
+
+## 📺 Setup Video
+
+Watch the quick demo or setup guide here:  
+[![Watch the video](https://img.youtube.com/vi/0l3FRqL7oXs/hqdefault.jpg)](https://youtu.be/0l3FRqL7oXs)
+
+---
+
+## ⚙️ Usage 
+how to run script inside docker container:
+
+```bash
+python certificate-management.py
+```
+
+Menu options:
+1. 🆕 Generate new certificates  
+2. 🔍 View certificate details  
+3. 🔄 Backup and rotate certificates  
+4. ❌ Exit the script  
+
+---
+
+## 🌟 Key Features
+
+- 🧩 All-in-one certificate manager  
+- 📅 Displays expiry dates, DNS info, and serials  
+- 🔄 Easy rotation workflow  
+- 🧾 Certificate metadata at a glance  
+- 🛡️ Vault integration-ready
+
+---
+
+## 🌐 View My Profiles
+
+Check out more of my work and connect with me online:  
+👉 [https://linktr.ee/your-link](https://linktr.ee/theankushrai))
+
+Includes:
+- GitHub  
+- LeetCode  
+- GeeksForGeeks  
+- LinkedIn
+```
