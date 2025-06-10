@@ -46,7 +46,7 @@ No manual setup required — just pull and run!
 
 ## 📺 Setup Video
 
-Watch the quick demo or setup guide here:  
+Watch the quick demo or setup guide here:  WATCH THE VIDEO
 [![Watch the video](https://img.youtube.com/vi/0l3FRqL7oXs/hqdefault.jpg)](https://youtu.be/0l3FRqL7oXs)
 
 ---
